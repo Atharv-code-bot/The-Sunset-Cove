@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f4f1e8;
+  color: #241b16;
+}
+
+
+/* ==========================================
+   MAIN SCROLL AREA
+========================================== */
+
+.hero-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+.hero h1 {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: #f7f3eb;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(
+    100px,
+    18vw,
+    350px
+  );
+
+  font-weight: 400;
+
+  letter-spacing: -0.07em;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   NEXT PAGE
+========================================== */
+
+.next-page {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 10;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #f4f1e8;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  padding: 70px;
+}
+
+
+/* ==========================================
+   PAGE CONTENT
+========================================== */
+
+.page-content {
+  padding: 40px;
+}
+
+.page-content span {
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 5px;
+}
+
+.page-content h2 {
+  margin-top: 35px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(
+    70px,
+    8vw,
+    140px
+  );
+
+  font-weight: 400;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.06em;
+}
+
+.page-content p {
+  margin-top: 45px;
+
+  max-width: 400px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  color: #665c55;
+}
+
+
+/* ==========================================
+   PAGE IMAGE
+========================================== */
+
+.page-image {
+  height: 75vh;
+
+  overflow: hidden;
+}
+
+.page-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   AFTER SECTION
+========================================== */
+
+.after {
+  min-height: 100vh;
+
+  padding: 150px 7vw;
+
+  background: #ddd5c7;
+}
+
+.after span {
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 5px;
+}
+
+.after h2 {
+  margin-top: 40px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(
+    80px,
+    11vw,
+    180px
+  );
+
+  font-weight: 400;
+
+  line-height: 0.8;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .next-page {
+    grid-template-columns: 1fr;
+
+    padding: 30px;
+  }
+
+  .page-image {
+    display: none;
+  }
+
+  .page-content {
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 25vw;
+  }
+}
