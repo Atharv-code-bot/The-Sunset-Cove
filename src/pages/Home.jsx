@@ -24,7 +24,6 @@
 
 // // // export default Home;
 
-
 // // import { useCallback, useState } from "react";
 // // import Navbar from "../components/Navbar/Navbar";
 // // import VillaScroll from "../components/VillaScroll/VillaScroll";
@@ -89,7 +88,7 @@
 
 //         <Welcome />
 //        <FeatureSection />
-        
+
 //         {/* <Amenities /> */}
 //         <Gallery />
 //         <Activity />
@@ -118,17 +117,15 @@ import FeatureSection from "../components/FeatureSection/FeatureSection";
 const Home = () => {
   return (
     <main className="relative bg-[#f4f4ea]">
-
       {/* ================= HERO ================= */}
-      <section className="relative h-[70vh]">
-        <div className="fixed left-0 top-0 z-0 h-[70vh] w-full overflow-hidden">
+      <section className="relative h-[70vh] overflow-hidden">
+        <div className="absolute inset-0">
           <Hero />
         </div>
       </section>
 
       {/* ================= PAGE CONTENT ================= */}
       <div className="relative z-20 bg-[#f4f4ea]">
-
         <Navbar />
 
         <Welcome />
@@ -142,12 +139,10 @@ const Home = () => {
         <Testimonial />
 
         <InstagramMarquee />
-
       </div>
 
       {/* ================= FOOTER ================= */}
       <Footer />
-
     </main>
   );
 };

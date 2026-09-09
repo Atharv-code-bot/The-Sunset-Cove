@@ -1,78 +1,3 @@
-// // const Hero = () => {
-// //   return (
-// //     <div className="absolute inset-0">
-
-// //       {/* Hero image */}
-// //       <img
-// //         src="/images/hero.jpg"
-// //         alt="VillaBliss villa"
-// //         className="absolute inset-0 h-full w-full object-cover"
-// //       />
-
-// //       {/* Original-style dark overlay */}
-// //       <div className="absolute inset-0 bg-[#26180f]/25" />
-
-// //       {/* Hero logo */}
-// //       <div className="absolute inset-x-[15px] bottom-[12vh] z-10 md:bottom-[10vh]">
-// //         <img
-// //           src="/images/logo.svg"
-// //           alt="VillaBliss"
-// //           className="h-auto w-full object-contain"
-// //         />
-// //       </div>
-
-// //     </div>
-// //   );
-// // };
-
-// // export default Hero;
-
-
-// const Hero = () => {
-//   return (
-//     <div className="absolute inset-0">
-
-//       {/* Hero Image */}
-//       <img
-//         src="/images/hero.jpg"
-//         alt="VillaBliss villa"
-//         className="
-//           absolute
-//           inset-0
-//           h-full
-//           w-full
-//           object-cover
-//           object-center
-//         "
-//       />
-
-//       {/* Dark Overlay */}
-//       <div className="absolute inset-0 bg-[#26180f]/25" />
-
-//       {/* VillaBliss Logo */}
-//       <div
-//         className="
-//           absolute
-//           inset-x-[15px]
-//           bottom-[12vh]
-//           z-10
-//           md:bottom-[10vh]
-//         "
-//       >
-//         <img
-//           src="/images/logo.svg"
-//           alt="VillaBliss"
-//           className="h-auto w-full object-contain"
-//         />
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default Hero;
-
-
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -83,10 +8,7 @@ const Hero = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         logoRef.current,
-        {
-          y: 180,
-          opacity: 0,
-        },
+        { y: 150, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -101,46 +23,24 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0">
-      {/* HERO IMAGE */}
-
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Hero Image */}
       <img
-        src="/images/hero.jpg"
-        alt="VillaBliss villa"
-        className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
-        "
+        src="/images/hero2.png"
+        alt="The Sunset Cove"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* DARK OVERLAY */}
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-[#26180f]/35" />
 
-      <div className="absolute inset-0 bg-[#26180f]/25" />
-
-      {/* VILLABLISS LOGO */}
-
-      <div
-        ref={logoRef}
-        className="
-          absolute
-          inset-x-[15px]
-          bottom-[12vh]
-          z-10
-
-          md:bottom-[10vh]
-        "
-      >
+      {/* LOGO - Match VillaBliss */}
+      <div className="absolute inset-x-0 bottom-0 z-20 flex justify-center items-end pb-2">
         <img
-          src="/images/logo.svg"
-          alt="VillaBliss"
-          className="
-            h-auto
-            w-full
-            object-contain
-          "
+          ref={logoRef}
+          src="/images/Logo_new_bold.svg"
+          alt="The Sunset Cove"
+          className="h-[44vh] w-auto object-contain"
         />
       </div>
     </div>
