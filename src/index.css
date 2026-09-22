@@ -1,0 +1,80 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Inter:wght@400;500&display=swap");
+@import "tailwindcss";
+
+:root {
+  --cream: #f4f4ea;
+  --brown: #26180f;
+  --brown-light: #49382c;
+  --cream-text: #ebe7dc;
+  --yellow: #fdd17c;
+  --gray-brown: #514941;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--cream);
+  color: var(--brown);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant", serif;
+}
+
+button,
+a {
+  font-family: "Inter", sans-serif;
+} */
+
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Inter:wght@400;500&display=swap");
+@import "tailwindcss";
+
+:root {
+  --cream: #f4f4ea;
+  --brown: #26180f;
+  --brown-light: #49382c;
+  --cream-text: #ebe7dc;
+  --yellow: #fdd17c;
+  --gray-brown: #514941;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Cormorant", serif;
+  }
+
+  button, a {
+    font-family: "Inter", sans-serif;
+  }
+}
