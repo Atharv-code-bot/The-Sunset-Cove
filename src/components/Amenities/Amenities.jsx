@@ -1,4 +1,3 @@
-// components/Amenities/Amenities.jsx
 import { useRef } from "react";
 import { useRevealOnScroll } from "../../hooks/useRevealOnScroll";
 
@@ -27,25 +26,55 @@ const amenities = [
 
 const Amenities = () => {
   const ref = useRef(null);
+
   useRevealOnScroll(ref, { stagger: 0.15, y: 40 });
 
   return (
-    <section ref={ref} className="relative bg-[#26180f] px-6 py-28 text-[#ebe7dc] md:px-[7vw] md:py-36">
-      {/* optional bg image behind, like your screenshot's blurred room shot */}
+    <section
+      ref={ref}
+      className="relative overflow-hidden bg-[#26180f] text-white"
+    >
+      {/* Background image */}
       <img
         src="/images/amenities-bg.jpg"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-15"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.18]"
       />
 
-      <div className="relative grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-4">
-        {amenities.map((a) => (
-          <div key={a.title} data-reveal className="flex flex-col gap-5">
-            <img src={a.icon} alt="" className="h-10 w-10" />
-            <h3 className="text-[26px] leading-tight text-[#ebe7dc]">{a.title}</h3>
-            <p className="text-[15px] leading-7 text-[#ebe7dc]/70">{a.desc}</p>
-          </div>
-        ))}
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(38,24,15,0.18),rgba(38,24,15,0.88))]" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto w-full max-w-[1780px] px-[20px] py-[180px] md:px-[30px] md:py-[220px] lg:py-[250px]">
+        <div className="grid grid-cols-1 gap-y-[72px] md:grid-cols-2 md:gap-x-[44px] lg:grid-cols-4">
+          {amenities.map((item) => (
+            <div
+              key={item.title}
+              data-reveal
+              className="flex flex-col items-start border-l border-white/15 pl-5 first:border-l-0 first:pl-0"
+            >
+              <img
+                src={item.icon}
+                alt=""
+                className="mb-7 h-[50px] w-[50px] object-contain"
+              />
+
+              <h3
+                className="mb-[18px] text-[26px] font-semibold leading-[1.08] tracking-[-0.02em] text-white"
+                style={{ fontFamily: "Cormorant" }}
+              >
+                {item.title}
+              </h3>
+
+              <p
+                className="max-w-[315px] text-[16px] font-normal leading-[1.65] tracking-[-0.01em] text-[#ebe7dc]"
+                style={{ fontFamily: "Outfit" }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
