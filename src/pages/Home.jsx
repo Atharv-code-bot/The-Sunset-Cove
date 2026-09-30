@@ -11,7 +11,7 @@ import InstagramMarquee from "../components/InstagramMarquee/InstagramMarquee";
 import Footer from "../components/Footer/Footer";
 import FeatureSection from "../components/FeatureSection/FeatureSection";
 import RestaurantDetails from "../components/RestaurantDetails/RestaurantDetails";
-
+import AnimatedSection from "../components/AnimatedSection/AnimatedSection";
 const Home = () => {
   const location = useLocation();
 
@@ -49,18 +49,29 @@ const Home = () => {
 
         <Welcome />
 
-        <FeatureSection />
+      
+          <FeatureSection />
+    
 
         <RestaurantDetails />
 
         {/* Room Categories */}
-        <Gallery />
+      
+          <Gallery />
+      
 
-        <Activity />
+        <AnimatedSection>
+          <Testimonial />
+        </AnimatedSection>
 
-        <Testimonial />
+        <AnimatedSection>
+          <Activity />
+        </AnimatedSection>
 
-        <InstagramMarquee />
+        <AnimatedSection>
+          <InstagramMarquee />
+        </AnimatedSection>
+
       </div>
 
       {/* ================= FOOTER ================= */}
