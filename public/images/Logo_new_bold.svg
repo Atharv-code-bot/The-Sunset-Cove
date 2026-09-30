@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1723"
+     height="354"
+     viewBox="0 0 1723 354">
+  <rect width="1723" height="354" fill="none"/>
+
+  <text
+    x="861.5"
+    y="250"
+    text-anchor="middle"
+    fill="#E8E1D4"
+    font-family="Cormorant Garamond, Garamond, 'Times New Roman', serif"
+    font-size="242"
+    font-weight="600"
+    letter-spacing="-8"
+    stroke="#E8E1D4"
+    stroke-width="0.9"
+    paint-order="stroke fill">
+    The Sunset Cove
+  </text>
+</svg>
