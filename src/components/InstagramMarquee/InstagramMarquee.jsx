@@ -183,7 +183,7 @@ const InstagramMarquee = () => {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <section className="w-full overflow-hidden bg-[#f4f4ea] py-[80px]">
+    <section className="w-full overflow-hidden bg-[#f4f4ea] py-[0px]">
       <div
         ref={trackRef}
         className="flex w-max gap-0"
