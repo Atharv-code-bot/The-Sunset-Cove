@@ -16,24 +16,44 @@ const Home = () => {
   const location = useLocation();
 
   // Scroll back to Room Categories when returning from Room Details page.
+  // useEffect(() => {
+  //   if (location.state?.scrollToGallery) {
+  //     const gallerySection = document.getElementById("room-categories");
+
+  //     if (gallerySection) {
+  //       setTimeout(() => {
+  //         gallerySection.scrollIntoView({
+  //           behavior: "smooth",
+  //           block: "start",
+  //         });
+  //       }, 150);
+  //     }
+
+  //     // Clear router state after scrolling.
+  //     window.history.replaceState({}, document.title);
+  //   }
+  // }, [location]);
+
   useEffect(() => {
-    if (location.state?.scrollToGallery) {
-      const gallerySection = document.getElementById("room-categories");
+  const state = location.state;
+  if (!state?.scrollToGallery && !state?.scrollToActivity) return;
 
-      if (gallerySection) {
-        setTimeout(() => {
-          gallerySection.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }, 150);
+  const targetId = state.scrollToActivity ? "activity" : "room-categories";
+  const target = document.getElementById(targetId);
+
+  if (target) {
+    setTimeout(() => {
+      if (window.lenis) {
+        window.lenis.scrollTo(target, { offset: 0, duration: 1.4 });
+      } else {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+    }, 150);
+  }
 
-      // Clear router state after scrolling.
-      window.history.replaceState({}, document.title);
-    }
-  }, [location]);
-
+  // Clear router state after scrolling
+  window.history.replaceState({}, document.title);
+}, [location]);
   return (
     <main className="relative bg-[#f4f4ea]">
       {/* ================= HERO ================= */}
@@ -76,6 +96,7 @@ const Home = () => {
 
       {/* ================= FOOTER ================= */}
       <Footer />
+      
     </main>
   );
 };

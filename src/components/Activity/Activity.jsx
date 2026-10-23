@@ -196,7 +196,7 @@ const ActivityItem = ({ activity, index }) => {
 
 const Activity = () => {
   return (
-    <section className="w-full bg-[#f4f4ea]">
+    <section id="activity" className="w-full bg-[#f4f4ea]">
       <div
         className="
           mx-auto

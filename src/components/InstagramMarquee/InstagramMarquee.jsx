@@ -1,38 +1,3 @@
-// // components/InstagramMarquee/InstagramMarquee.jsx
-// import { useRef } from "react";
-// import { useGSAP } from "@gsap/react";
-// import gsap from "gsap";
-
-// const images = ["/images/insta-1.jpg", "/images/insta-2.jpg", "/images/insta-3.jpg", "/images/insta-4.jpg"];
-
-// const InstagramMarquee = () => {
-//   const trackRef = useRef(null);
-
-//   useGSAP(() => {
-//     const track = trackRef.current;
-//     const width = track.scrollWidth / 2; // because content is duplicated below
-
-//     gsap.to(track, {
-//       x: -width,
-//       duration: 25,
-//       ease: "none",
-//       repeat: -1,
-//     });
-//   }, { scope: trackRef });
-
-//   return (
-//     <section className="overflow-hidden bg-[#f4f4ea] py-16">
-//       <div ref={trackRef} className="flex w-max gap-4">
-//         {[...images, ...images].map((src, i) => (
-//           <img key={i} src={src} alt="" className="h-[220px] w-[280px] object-cover" />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default InstagramMarquee;
-
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";

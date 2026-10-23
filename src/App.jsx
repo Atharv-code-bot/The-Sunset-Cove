@@ -27,11 +27,14 @@ import Home from "./pages/Home";
 import ActivityDetail from "./pages/ActivityDetail";
 import RoomDetails from "./pages/RoomDetails";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
+
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SmoothScroll />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/activity/:slug" element={<ActivityDetail />} />

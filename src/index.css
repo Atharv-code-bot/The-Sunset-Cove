@@ -36,8 +36,10 @@
     font-family: "Inter", sans-serif;
   }
 }
-
-
+/* map */
+.footer-map .leaflet-tile-pane {
+  filter: grayscale(0.6) sepia(0.55) saturate(0.7) brightness(1.05) contrast(0.9);
+}
 
 /* ==========================================================
    WELCOME SECTION — Villa Bliss (Pixel Accurate)
