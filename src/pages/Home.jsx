@@ -52,12 +52,14 @@ const Home = () => {
       
           <FeatureSection />
     
-
+        <AnimatedSection>
         <RestaurantDetails />
+        </AnimatedSection>
 
         {/* Room Categories */}
-      
+           <AnimatedSection>     
           <Gallery />
+        </AnimatedSection>
       
 
         <AnimatedSection>

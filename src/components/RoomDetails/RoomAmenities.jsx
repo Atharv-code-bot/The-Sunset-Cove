@@ -22,7 +22,6 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Amenity → Icon Mapping
 const iconMap = {
   "Private Infinity Pool": LuWaves,
   "Ocean-facing Balcony": LuSun,
@@ -30,25 +29,19 @@ const iconMap = {
   "Sunset Balcony": LuSun,
   "Garden & Valley View": LuTrees,
   "Courtyard View": LuTrees,
-
   "King Size Bed": LuBedDouble,
   "Queen Size Bed": LuBedDouble,
-
   "Luxury Bathtub": LuBath,
   "Rain Shower": LuBath,
   "Premium Bathroom": LuBath,
-
   "Coffee & Tea Station": LuCoffee,
   "Coffee Station": LuCoffee,
   "Coffee Machine": LuCoffee,
-
   "Mini Bar": LuCoffee,
   "Mini Refrigerator": LuRefrigerator,
-
   "Smart TV": LuTv,
   "High-Speed Wi-Fi": LuWifi,
   "Wi-Fi": LuWifi,
-
   Workspace: LuLaptop,
   Wardrobe: LuShirt,
   "Reading Corner": LuBookOpen,
@@ -63,94 +56,91 @@ const RoomAmenities = ({ room }) => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Heading
-      gsap.from(headingRef.current.children, {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-          invalidateOnRefresh: true,
-        },
-        immediateRender: false,
-      });
+      const headingItems = headingRef.current?.children;
 
-      // Amenity Cards
-      cardsRef.current.forEach((card, index) => {
+      if (headingItems?.length) {
         gsap.fromTo(
-          card,
-          {
-            y: 35,
-            opacity: 0,
-          },
+          headingItems,
+          { y: 18, opacity: 0.7 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.6,
-            delay: index * 0.05,
+            duration: 0.65,
+            stagger: 0.08,
             ease: "power3.out",
+            immediateRender: false,
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 88%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        gsap.fromTo(
+          card,
+          { y: 18, opacity: 0.7 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            delay: index * 0.035,
+            ease: "power3.out",
+            immediateRender: false,
             scrollTrigger: {
               trigger: card,
-              start: "top 92%",
-              toggleActions: "play none none reverse",
-              invalidateOnRefresh: true,
+              start: "top 94%",
+              once: true,
             },
-            immediateRender: false,
-          },
+          }
         );
       });
 
-      // Refresh after images/layout settle
       requestAnimationFrame(() => ScrollTrigger.refresh());
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [room]);
 
   return (
-    <section ref={sectionRef} className="bg-[#F4F0E8] py-24 lg:py-32">
-      <div className="mx-auto max-w-[1750px] px-6 md:px-[30px]">
-        {/* Heading */}
-        <div ref={headingRef} className="mb-16 max-w-5xl">
-          <p className="mb-4 font-[Inter] text-[12px] uppercase tracking-[0.30em] text-[#A68652]">
+    <section
+      ref={sectionRef}
+      className="bg-[#F4F0E8] px-5 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-20"
+    >
+      <div className="mx-auto max-w-[1750px]">
+        <div ref={headingRef} className="mb-9 max-w-5xl sm:mb-11 lg:mb-12">
+          <p className="mb-3 font-[Inter] text-[10px] uppercase tracking-[0.28em] text-[#A68652] sm:mb-4 sm:text-[12px] sm:tracking-[0.30em]">
             Included Amenities
           </p>
-
-          <h2 className="font-[Cormorant] text-[52px] leading-[0.96] text-[#26180F] md:text-[72px]">
+          <h2 className="font-[Cormorant] text-[40px] leading-[0.98] text-[#26180F] sm:text-[52px] md:text-[64px] lg:text-[72px]">
             Everything Included In Your Stay
           </h2>
-
-          <p className="mt-6 max-w-3xl font-[Inter] text-[17px] leading-[1.85] text-[#514941]">
+          <p className="mt-4 max-w-3xl font-[Inter] text-[14px] leading-[1.8] text-[#514941] sm:mt-5 sm:text-[16px] sm:leading-[1.85] lg:text-[17px]">
             Every room category at Sunset Cove is thoughtfully designed with
             premium comforts, curated experiences, and modern amenities for a
             relaxing coastal getaway.
           </p>
         </div>
 
-        {/* Amenities Grid */}
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 xl:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-5">
           {room.amenities.map((amenity, index) => {
             const title = typeof amenity === "string" ? amenity : amenity.title;
-
             const Icon = iconMap[title] || LuCheck;
 
             return (
               <div
                 key={index}
                 ref={(el) => (cardsRef.current[index] = el)}
-                className="group rounded-[24px] border border-[#DDD4C6] bg-[#F7F4ED] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#B98B32]/70 hover:bg-[#FBF8F2]"
+                className="group rounded-[18px] border border-[#DDD4C6] bg-[#F7F4ED] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#B98B32]/70 hover:bg-[#FBF8F2] sm:rounded-[22px] sm:p-5 lg:rounded-[24px] lg:p-6"
               >
-                {/* Icon */}
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#EEE7DA] text-[#A68652] transition-all duration-300 group-hover:rotate-6 group-hover:bg-[#FDD17C]/20">
-                  <Icon size={28} strokeWidth={1.8} />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#EEE7DA] text-[#A68652] transition-all duration-300 group-hover:rotate-6 group-hover:bg-[#FDD17C]/20 sm:mb-5 sm:h-12 sm:w-12 lg:mb-6 lg:h-14 lg:w-14">
+                  <Icon size={25} strokeWidth={1.8} />
                 </div>
-
-                {/* Amenity Name */}
-                <p className="font-[Inter] text-[15px] font-medium leading-7 text-[#26180F]">
+                <p className="font-[Inter] text-[13px] font-medium leading-6 text-[#26180F] sm:text-[14px] lg:text-[15px] lg:leading-7">
                   {title}
                 </p>
               </div>
