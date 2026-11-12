@@ -224,7 +224,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Navbar from "../components/Navbar/Navbar";
 import Testimonial from "../components/Testimonial/Testimonial";
-import InstagramMarquee from "../components/InstagramMarquee/InstagramMarquee";
 import Footer from "../components/Footer/Footer";
 import ActivityCTA from "../components/ActivityCTA/ActivityCTA";
 import AnimatedSection from "../components/AnimatedSection/AnimatedSection";
@@ -439,7 +438,7 @@ const ActivityDetail = () => {
       {/* =====================================================
           BACK BUTTON
       ===================================================== */}
-      <section className="mx-auto w-full max-w-[1780px] px-[24px] pt-[110px] md:px-[50px] md:pt-[130px]">
+      <section className="mx-auto w-full max-w-[1780px] px-[24px] pt-[24px] md:px-[50px] md:pt-[40px]">
         <button
           data-intro
           type="button"
@@ -537,22 +536,38 @@ const ActivityDetail = () => {
         </p>
       </section>
 
-      {/* =====================================================
-          HERO IMAGE
-      ===================================================== */}
-      <section className="mx-auto w-full max-w-[1780px] px-[20px] md:px-[50px]">
-        <div
-          data-hero
-          className="w-full overflow-hidden rounded-[6px] bg-[#e9e7dc]"
-        >
-          <img
-            data-hero-img
-            src={activity.heroImage}
-            alt={activity.title}
-            className="block max-h-[760px] w-full object-cover will-change-transform"
-          />
-        </div>
-      </section>
+     {/* =====================================================
+    HERO IMAGE
+===================================================== */}
+<section className="mx-auto w-full max-w-[1780px] px-[24px] md:px-[80px] lg:px-[140px]">
+  <div
+    data-hero
+    className="
+      mx-auto
+      w-full
+      max-w-[1250px]
+      h-[320px]
+      overflow-hidden
+      rounded-[6px]
+      bg-[#e9e7dc]
+      md:h-[420px]
+      lg:h-[480px]
+    "
+  >
+    <img
+      data-hero-img
+      src={activity.heroImage}
+      alt={activity.title}
+      className="
+        block
+        h-full
+        w-full
+        object-cover
+        will-change-transform
+      "
+    />
+  </div>
+</section>
 
       {/* =====================================================
           TIPS LIST
@@ -637,9 +652,7 @@ const ActivityDetail = () => {
         <ActivityCTA />
       </AnimatedSection>
 
-      <AnimatedSection>
-        <InstagramMarquee />
-      </AnimatedSection>
+      
 
       <Footer />
     </main>

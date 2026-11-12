@@ -89,7 +89,7 @@ const Gallery = () => {
     <section
       id="room-categories"
       ref={sectionRef}
-      className="w-full bg-[#f4f4ea] pt-36 pb-36"
+      className="w-full bg-[#f4f4ea] pt-36 pb-[55px] md:pb-[75px]"
     >
       <div className="mx-auto w-full max-w-[1780px] px-[20px] sm:px-[30px] md:px-[50px]">
         {/* Heading */}
