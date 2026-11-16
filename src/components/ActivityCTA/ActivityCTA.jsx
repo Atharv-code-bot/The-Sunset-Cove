@@ -2,7 +2,7 @@ import React from "react";
 
 // TODO: replace with your real WhatsApp number, country code first, no + or spaces
 // e.g. "919876543210"
-const WHATSAPP_NUMBER = "911234567890";
+const WHATSAPP_NUMBER = "919834069861";
 
 const ActivityCTA = () => {
   const scrollToGallery = () => {
