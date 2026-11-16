@@ -1,3 +1,6 @@
+
+import { Link } from "react-router-dom";
+
 const restaurantDetails = [
   ["Dining options", "Buffet & pre-order meals"],
   ["Meal timings", "Contact us for current timings"],
@@ -36,8 +39,8 @@ const RestaurantDetails = () => {
             </div>
 
             <div className="order-3 mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap md:mt-8 md:flex-col md:items-start lg:flex-row">
-              <a
-                href="/restaurant"
+              <Link
+                to="/restaurant"
                 className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-[#26180F] px-6 py-3 font-[Inter] text-[12px] text-[#26180F] transition-colors duration-300 hover:bg-[#26180F] hover:text-[#F4F4EA] sm:w-auto"
               >
                 Explore Restaurant
@@ -56,7 +59,7 @@ const RestaurantDetails = () => {
                   <path d="M5 12h14" />
                   <path d="m13 6 6 6-6 6" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
 
