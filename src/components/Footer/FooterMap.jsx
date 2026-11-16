@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import {
   MapContainer,
@@ -81,7 +80,7 @@ const FooterMap = () => {
         // Optional: real driving distance/time (free OSRM demo server)
         try {
           const res = await fetch(
-            `https://router.project-osrm.org/route/v1/driving/${u[1]},${u[0]};${HOTEL[1]},${HOTEL[0]}?overview=false`
+            `https://router.project-osrm.org/route/v1/driving/${u[1]},${u[0]};${HOTEL[1]},${HOTEL[0]}?overview=false`,
           );
           const data = await res.json();
           const route = data?.routes?.[0];
@@ -99,7 +98,7 @@ const FooterMap = () => {
         setStatus("error");
         setErrorMsg("Please allow location access to see the distance.");
       },
-      { enableHighAccuracy: true, timeout: 10000 }
+      { enableHighAccuracy: true, timeout: 10000 },
     );
   };
 
@@ -232,7 +231,7 @@ const FooterMap = () => {
           href={DIRECTIONS_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-fit text-[15px] underline underline-offset-[4px] transition-colors duration-300 hover:text-[#fdd17c]"
+          className="inline-flex w-fit items-center justify-center rounded-full border border-[#fdd17c] px-[20px] py-[9px] text-[14px] text-[#fdd17c] transition-colors duration-300 hover:bg-[#fdd17c] hover:text-[#26180f]"
         >
           Get directions
         </a>

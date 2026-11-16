@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import infinitySuite from "../../assets/rooms/cove-infinity-suites.jpg";
 import crescentRoom from "../../assets/rooms/crescent-cove-rooms.jpg";
 import verdantRoom from "../../assets/rooms/verdant-cove-rooms.jpg";
@@ -40,6 +41,7 @@ const roomCategories = [
 
 const Gallery = () => {
   const navigate = useNavigate();
+  const sectionRef = useRef(null);
 
   return (
     <section

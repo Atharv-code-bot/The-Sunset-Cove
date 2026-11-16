@@ -86,6 +86,7 @@ const Home = () => {
 
         <FeatureSection />
 
+        <AnimatedSection>
         <RestaurantDetails />
         </AnimatedSection>
 
