@@ -44,7 +44,8 @@ const Gallery = () => {
   return (
     <section
       id="room-categories"
-      className="w-full bg-[#f4f4ea] py-16 sm:py-20 lg:py-28"
+      ref={sectionRef}
+      className="w-full bg-[#f4f4ea] pt-36 pb-[55px] md:pb-[75px]"
     >
       <div className="mx-auto w-full max-w-[1780px] px-4 sm:px-6 md:px-8 lg:px-[50px]">
         <div className="mb-10 text-center sm:mb-14 lg:mb-20">

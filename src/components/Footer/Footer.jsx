@@ -1,708 +1,18 @@
-// // components/Footer/Footer.jsx
 
-// const Footer = () => {
-//   const pagesLeft = [
-//     { label: "Home", href: "/" },
-//     { label: "About", href: "/about" },
-//     { label: "Activity", href: "/activity" },
-//     { label: "Blog", href: "/blog" },
-//     { label: "Gallery", href: "/gallery" },
-//   ];
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FooterMap from "./FooterMap";
 
-//   const pagesRight = [
-//     { label: "Contact", href: "/contact" },
-//     { label: "Error 404", href: "/404" },
-//   ];
-
-//   const socials = [
-//     {
-//       name: "Facebook",
-//       href: "https://www.facebook.com/",
-//       icon: "https://framerusercontent.com/images/Z88GKfSf2uOgJiC2Q37bEW5Pjs8.svg?width=18&height=19",
-//     },
-//     {
-//       name: "Instagram",
-//       href: "https://www.instagram.com/",
-//       icon: "https://framerusercontent.com/images/6XvM4qg6OetjKEC2gAgeDw6LnZk.svg?width=18&height=19",
-//     },
-//     {
-//       name: "Linkedin",
-//       href: "https://in.linkedin.com/",
-//       icon: "https://framerusercontent.com/images/3Za7nbXTEmGwcM0b4PHa3Jy1U.svg?width=18&height=19",
-//     },
-//     {
-//       name: "Twitter",
-//       href: "https://x.com/",
-//       icon: "https://framerusercontent.com/images/oLxMJicFu2jpqqqx3OwApNiNZfI.svg?width=18&height=19",
-//     },
-//     {
-//       name: "Youtube",
-//       href: "https://www.youtube.com/",
-//       icon: "https://framerusercontent.com/images/OLQZfZ9AWmeqRFizSWGqkjNmCo.svg?width=20&height=21",
-//     },
-//   ];
-
-//   return (
-//     <footer className="relative w-full overflow-hidden bg-[#26180f] text-[#ebe7dc]">
-      
-//       {/* ================= MAIN FOOTER CONTENT ================= */}
-//       <div className="relative z-10 mx-auto max-w-[1530px] px-[35px] pb-[105px] pt-[145px] md:px-[55px] lg:px-[70px]">
-        
-//         <div className="grid grid-cols-1 gap-[70px] md:grid-cols-2 lg:grid-cols-[1.55fr_1fr_1.1fr_0.85fr] lg:gap-[70px]">
-
-//           {/* ================= BRAND ================= */}
-//           <div className="flex flex-col">
-            
-//             {/* Brand Icon */}
-//             <a
-//               href="/"
-//               className="mb-[55px] block h-[80px] w-[80px]"
-//             >
-//               <img
-//                 src="/images/brand-icon.png"
-//                 alt="VillaBliss"
-//                 className="h-full w-full object-contain"
-//               />
-//             </a>
-
-//             {/* Heading */}
-//             <h2 className="max-w-[390px] font-cormorant text-[30px] leading-[1.05] tracking-[-0.02em] text-white md:text-[31px] lg:text-[32px]">
-//               Your luxurious getaway awaits
-//             </h2>
-
-//             {/* Button */}
-//             <a
-//               href="/contact"
-//               className="mt-[32px] flex h-[57px] w-[275px] items-center justify-center rounded-full border border-[#fdd17c] font-inter text-[16px] font-medium text-[#fdd17c] transition-all duration-300 hover:bg-[#fdd17c] hover:text-[#26180f]"
-//             >
-//               Book your stay now
-//             </a>
-
-//             {/* Copyright */}
-//             <p className="mt-[55px] font-inter text-[14px] leading-[1.5] text-[#ebe7dc]">
-//               Designed by{" "}
-//               <a
-//                 href="https://www.webestica.com/"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="text-[#fdd17c] underline underline-offset-[2px]"
-//               >
-//                 Webestica
-//               </a>
-//               , Powered by{" "}
-//               <a
-//                 href="https://framer.com"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="text-[#fdd17c] underline underline-offset-[2px]"
-//               >
-//                 Framer
-//               </a>
-//             </p>
-//           </div>
-
-//           {/* ================= PAGES ================= */}
-//           <div>
-//             <h3 className="mb-[58px] font-cormorant text-[25px] leading-none text-white">
-//               Pages
-//             </h3>
-
-//             <div className="grid grid-cols-2 gap-x-[65px]">
-              
-//               {/* Left */}
-//               <div className="flex flex-col gap-[20px]">
-//                 {pagesLeft.map((page, index) => (
-//                   <a
-//                     key={page.label}
-//                     href={page.href}
-//                     className={`font-inter text-[16px] leading-none transition-colors duration-300 hover:text-[#fdd17c] ${
-//                       index === 0 ? "text-[#fdd17c]" : "text-[#ebe7dc]"
-//                     }`}
-//                   >
-//                     {page.label}
-//                   </a>
-//                 ))}
-//               </div>
-
-//               {/* Right */}
-//               <div className="flex flex-col gap-[20px]">
-//                 {pagesRight.map((page) => (
-//                   <a
-//                     key={page.label}
-//                     href={page.href}
-//                     className="font-inter text-[16px] leading-none text-[#ebe7dc] transition-colors duration-300 hover:text-[#fdd17c]"
-//                   >
-//                     {page.label}
-//                   </a>
-//                 ))}
-//               </div>
-
-//             </div>
-//           </div>
-
-//           {/* ================= CONTACT ================= */}
-//           <div>
-//             <h3 className="mb-[58px] font-cormorant text-[25px] leading-none text-white">
-//               Contact info
-//             </h3>
-
-//             {/* Phone + Email */}
-//             <div className="font-inter text-[16px] leading-none">
-              
-//               <div className="flex flex-wrap gap-x-[28px] gap-y-[18px]">
-//                 <a
-//                   href="tel:+2518546308"
-//                   className="underline underline-offset-[3px] transition-colors hover:text-[#fdd17c]"
-//                 >
-//                   +(251) 854-6308
-//                 </a>
-
-//                 <a
-//                   href="tel:+4695372410"
-//                   className="underline underline-offset-[3px] transition-colors hover:text-[#fdd17c]"
-//                 >
-//                   +(469) 537-2410
-//                 </a>
-//               </div>
-
-//               <a
-//                 href="mailto:hello@example.com"
-//                 className="mt-[28px] block w-fit underline underline-offset-[3px] transition-colors hover:text-[#fdd17c]"
-//               >
-//                 hello@example.com
-//               </a>
-//             </div>
-
-//             {/* Address */}
-//             <div className="mt-[43px]">
-//               <p className="font-inter text-[16px] leading-none text-[#fdd17c]">
-//                 VillaBliss
-//               </p>
-
-//               <a
-//                 href="https://www.google.com/maps/"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="mt-[13px] block max-w-[330px] font-inter text-[16px] leading-[1.45] text-[#ebe7dc] transition-colors hover:text-[#fdd17c]"
-//               >
-//                 123 Seaside Retreat Lane, Palm Cove, FL 33140,
-//                 <br />
-//                 United States
-//               </a>
-//             </div>
-//           </div>
-
-//           {/* ================= SOCIAL ================= */}
-//           <div>
-//             <h3 className="mb-[58px] font-cormorant text-[25px] leading-none text-white">
-//               Follow us on
-//             </h3>
-
-//             <div className="flex flex-col gap-[20px]">
-//               {socials.map((social) => (
-//                 <a
-//                   key={social.name}
-//                   href={social.href}
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                   className="group flex items-center gap-[13px] font-inter text-[16px] leading-none text-[#ebe7dc] transition-colors duration-300 hover:text-[#fdd17c]"
-//                 >
-//                   <div className="flex h-[20px] w-[20px] items-center justify-center">
-//                     <img
-//                       src={social.icon}
-//                       alt=""
-//                       className="max-h-[20px] max-w-[20px] object-contain brightness-0 invert"
-//                     />
-//                   </div>
-
-//                   <span>{social.name}</span>
-//                 </a>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* ================= HUGE BACKGROUND LOGO ================= */}
-//       <div className="pointer-events-none relative z-0 -mt-[5px] flex w-full justify-center overflow-hidden">
-//         <img
-//           src="https://framerusercontent.com/images/eLGz0Nx7PSBpSF2iwtEGDBQLIYY.svg?width=1723&height=354"
-//           alt=""
-//           className="block h-auto w-[calc(100%-100px)] max-w-[1723px] object-contain opacity-[0.05] md:w-[calc(100%-140px)] lg:w-[calc(100%-170px)]"
-//         />
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
-// import React from "react";
-
-// const Footer = () => {
-//   const brandIcon =
-//     "https://framerusercontent.com/images/rCmcA1kDLtltS2UUPQYqztQEaY.svg?width=80&height=80";
-
-//   const footerLogo =
-//     "https://framerusercontent.com/images/eLGz0Nx7PSBpSF2iwtEGDBQLIYY.svg?width=1723&height=354";
-
-//   const socials = [
-//     {
-//       name: "Facebook",
-//       icon: "https://framerusercontent.com/images/Z88GKfSf2uOgJiC2Q37bEW5Pjs8.svg?width=18&height=19",
-//       href: "#",
-//     },
-//     {
-//       name: "Instagram",
-//       icon: "https://framerusercontent.com/images/6XvM4qg6OetjKEC2gAgeDw6LnZk.svg?width=18&height=19",
-//       href: "#",
-//     },
-//     {
-//       name: "Linkedin",
-//       icon: "https://framerusercontent.com/images/3Za7nbXTEmGwcM0b4PHa3Jy1U.svg?width=18&height=19",
-//       href: "#",
-//     },
-//     {
-//       name: "Twitter",
-//       icon: "https://framerusercontent.com/images/oLxMJicFu2jpqqqx3OwApNiNZfI.svg?width=18&height=19",
-//       href: "#",
-//     },
-//     {
-//       name: "Youtube",
-//       icon: "https://framerusercontent.com/images/OLQZfZ9AWmeqRFizSWGqkjNmCo.svg?width=20&height=21",
-//       href: "#",
-//     },
-//   ];
-
-//   const pagesLeft = [
-//     { name: "Home", href: "/" },
-//     { name: "About", href: "/about" },
-//     { name: "Activity", href: "/activity" },
-//     { name: "Blog", href: "/blog" },
-//     { name: "Gallery", href: "/gallery" },
-//   ];
-
-//   const pagesRight = [
-//     { name: "Contact", href: "/contact" },
-//     { name: "Error 404", href: "/404" },
-//   ];
-
-//   return (
-//     <footer className="relative w-full overflow-hidden bg-[#26180f] text-[#ebe7dc] pt-20">
-
-//       {/* =========================================================
-//           MAIN FOOTER CONTENT
-//       ========================================================= */}
-//       <main
-//         className="
-//           relative
-//     z-10
-//     mx-auto
-//     grid
-//     w-full
-//     max-w-[1450px]
-
-//     grid-cols-1
-
-//     px-[30px]
-//     pb-[100px]
-
-//     md:grid-cols-2
-//     md:px-[50px]
-//     md:gap-x-[70px]
-//     md:gap-y-[80px]
-
-//     lg:grid-cols-[1.25fr_1fr_1fr_0.85fr]
-//     lg:gap-x-[70px]
-//     lg:gap-y-0
-//         "
-//       >
-
-//         {/* =====================================================
-//             COLUMN 1 — BRAND
-//         ===================================================== */}
-//         <div className="flex flex-col">
-
-//           {/* Brand Icon */}
-//           <img
-//             src={brandIcon}
-//             alt="VillaBliss"
-//             className="
-//               mb-[48px]
-//               h-[80px]
-//               w-[80px]
-//               object-contain
-//             "
-//           />
-
-//           {/* Heading */}
-//           <h2
-//             className="
-//               max-w-[390px]
-//               font-['Cormorant_Garamond']
-//               text-[30px]
-//               font-medium
-//               leading-[1.15]
-//               tracking-[-0.02em]
-
-//               md:text-[31px]
-
-//               lg:text-[32px]
-//             "
-//           >
-//             Your luxurious getaway awaits
-//           </h2>
-
-//           {/* CTA */}
-//           <a
-//             href="/contact"
-//             className="
-//               mt-[32px]
-//               flex
-//               h-[58px]
-//               w-fit
-//               min-w-[275px]
-//               items-center
-//               justify-center
-//               rounded-full
-//               border
-//               border-[#fdd17c]
-//               px-[30px]
-//               font-['Inter']
-//               text-[16px]
-//               font-medium
-//               text-[#fdd17c]
-//               transition-all
-//               duration-300
-//               hover:bg-[#fdd17c]
-//               hover:text-[#26180f]
-//             "
-//           >
-//             Book your stay now
-//           </a>
-
-//           {/* Copyright */}
-//           <p
-//             className="
-//               mt-[55px]
-//               font-['Inter']
-//               text-[15px]
-//               leading-[1.5]
-//               text-[#ebe7dc]
-//             "
-//           >
-//             Designed by{" "}
-//             <a
-//               href="#"
-//               className="
-//                 text-[#fdd17c]
-//                 underline
-//                 underline-offset-[3px]
-//               "
-//             >
-//               Webestica
-//             </a>
-//             , Powered by{" "}
-//             <a
-//               href="#"
-//               className="
-//                 text-[#fdd17c]
-//                 underline
-//                 underline-offset-[3px]
-//               "
-//             >
-//               Framer
-//             </a>
-//           </p>
-//         </div>
-
-
-//         {/* =====================================================
-//             COLUMN 2 — PAGES
-//         ===================================================== */}
-//         <div className="flex flex-col">
-
-//           <h3
-//             className="
-//               font-['Cormorant_Garamond']
-//               text-[28px]
-//               font-medium
-//               leading-none
-//             "
-//           >
-//             Pages
-//           </h3>
-
-//           {/* Page Links */}
-//           <div
-//             className="
-//               mt-[62px]
-//               grid
-//               grid-cols-2
-//               gap-x-[65px]
-//             "
-//           >
-
-//             {/* Left */}
-//             <div className="flex flex-col gap-[24px]">
-
-//               {pagesLeft.map((page) => (
-//                 <a
-//                   key={page.name}
-//                   href={page.href}
-//                   className="
-//                     w-fit
-//                     font-['Inter']
-//                     text-[16px]
-//                     leading-[1.3]
-//                     transition-colors
-//                     duration-300
-//                     hover:text-[#fdd17c]
-//                   "
-//                 >
-//                   {page.name}
-//                 </a>
-//               ))}
-
-//             </div>
-
-//             {/* Right */}
-//             <div className="flex flex-col gap-[24px]">
-
-//               {pagesRight.map((page) => (
-//                 <a
-//                   key={page.name}
-//                   href={page.href}
-//                   className="
-//                     w-fit
-//                     font-['Inter']
-//                     text-[16px]
-//                     leading-[1.3]
-//                     transition-colors
-//                     duration-300
-//                     hover:text-[#fdd17c]
-//                   "
-//                 >
-//                   {page.name}
-//                 </a>
-//               ))}
-
-//             </div>
-
-//           </div>
-//         </div>
-
-
-//         {/* =====================================================
-//             COLUMN 3 — CONTACT
-//         ===================================================== */}
-//         <div className="flex flex-col">
-
-//           <h3
-//             className="
-//               font-['Cormorant_Garamond']
-//               text-[28px]
-//               font-medium
-//               leading-none
-//             "
-//           >
-//             Contact info
-//           </h3>
-
-//           {/* Contact Details */}
-//           <div className="mt-[62px]">
-
-//             {/* Phone Numbers */}
-//             <div
-//               className="
-//                 flex
-//                 flex-wrap
-//                 gap-x-[25px]
-//                 gap-y-[10px]
-//               "
-//             >
-//               <a
-//                 href="tel:+2518546308"
-//                 className="
-//                   font-['Inter']
-//                   text-[16px]
-//                   underline
-//                   underline-offset-[4px]
-//                   transition-colors
-//                   duration-300
-//                   hover:text-[#fdd17c]
-//                 "
-//               >
-//                 +(251) 854-6308
-//               </a>
-
-//               <a
-//                 href="tel:+4695372410"
-//                 className="
-//                   font-['Inter']
-//                   text-[16px]
-//                   underline
-//                   underline-offset-[4px]
-//                   transition-colors
-//                   duration-300
-//                   hover:text-[#fdd17c]
-//                 "
-//               >
-//                 +(469) 537-2410
-//               </a>
-//             </div>
-
-//             {/* Email */}
-//             <a
-//               href="mailto:hello@example.com"
-//               className="
-//                 mt-[27px]
-//                 block
-//                 w-fit
-//                 font-['Inter']
-//                 text-[16px]
-//                 underline
-//                 underline-offset-[4px]
-//                 transition-colors
-//                 duration-300
-//                 hover:text-[#fdd17c]
-//               "
-//             >
-//               hello@example.com
-//             </a>
-
-//             {/* Address */}
-//             <div className="mt-[42px]">
-
-//               <p
-//                 className="
-//                   font-['Inter']
-//                   text-[16px]
-//                   font-medium
-//                   leading-[1.4]
-//                   text-[#fdd17c]
-//                 "
-//               >
-//                 VillaBliss
-//               </p>
-
-//               <p
-//                 className="
-//                   mt-[8px]
-//                   max-w-[330px]
-//                   font-['Inter']
-//                   text-[16px]
-//                   leading-[1.45]
-//                   text-[#ebe7dc]
-//                 "
-//               >
-//                 123 Seaside Retreat Lane, Palm Cove,
-//                 FL 33140, United States
-//               </p>
-
-//             </div>
-//           </div>
-//         </div>
-
-
-//         {/* =====================================================
-//             COLUMN 4 — SOCIAL
-//         ===================================================== */}
-//         <div className="flex flex-col">
-
-//           <h3
-//             className="
-//               font-['Cormorant_Garamond']
-//               text-[28px]
-//               font-medium
-//               leading-none
-//             "
-//           >
-//             Follow us on
-//           </h3>
-
-//           {/* Social Links */}
-//           <div className="mt-[62px] flex flex-col gap-[25px]">
-
-//             {socials.map((social) => (
-//               <a
-//                 key={social.name}
-//                 href={social.href}
-//                 className="
-//                   flex
-//                   w-fit
-//                   items-center
-//                   gap-[14px]
-//                   font-['Inter']
-//                   text-[16px]
-//                   transition-colors
-//                   duration-300
-//                   hover:text-[#fdd17c]
-//                 "
-//               >
-
-//                 <img
-//                   src={social.icon}
-//                   alt=""
-//                   className="
-//                     h-[19px]
-//                     w-[19px]
-//                     shrink-0
-//                     object-contain
-//                   "
-//                 />
-
-//                 <span>{social.name}</span>
-
-//               </a>
-//             ))}
-
-//           </div>
-//         </div>
-
-//       </main>
-
-
-//       {/* =========================================================
-//           GIANT VILLABLISS WATERMARK
-//       ========================================================= */}
-//       <div
-//         className="
-//           relative
-//           z-0
-//           -mt-[20px]
-//           w-full
-//           overflow-hidden
-//         "
-//       >
-//         <img
-//           src={footerLogo}
-//           alt="VillaBliss"
-//           className="
-//             mx-auto
-//             block
-//             w-[calc(100%-60px)]
-//             min-w-[900px]
-//             max-w-[1723px]
-//             opacity-[0.05]
-//           "
-//         />
-//       </div>
-
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
-import React from "react";
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Footer = () => {
-  const brandIcon =
-    "https://framerusercontent.com/images/rCmcA1kDLtltS2UUPQYqztQEaY.svg?width=80&height=80";
+  const footerRef = useRef(null);
 
-  const footerLogo =
-    "https://framerusercontent.com/images/eLGz0Nx7PSBpSF2iwtEGDBQLIYY.svg?width=1723&height=354";
+  const brandIcon = "/images/footer_logo.png";
+
+  const footerLogo = "/images/The_Sunset_Cove_footer.png";
 
   const socials = [
     {
@@ -745,255 +55,349 @@ const Footer = () => {
     { name: "Error 404", href: "/404" },
   ];
 
-  // Resolved from the shared Google Maps link (Neware, Maharashtra 415620)
-  const mapEmbedSrc =
-    "https://www.google.com/maps?q=17.1045364,73.2906199&z=14&output=embed";
+  // useGSAP(
+  //   () => {
+  //     const mm = gsap.matchMedia();
 
+  //     mm.add(
+  //       {
+  //         isDesktop: "(min-width: 1024px)",
+  //         reduceMotion: "(prefers-reduced-motion: reduce)",
+  //       },
+  //       (context) => {
+  //         const { isDesktop, reduceMotion } = context.conditions;
+
+  //         if (reduceMotion) {
+  //           gsap.set("[data-row]", { autoAlpha: 1, y: 0 });
+  //           gsap.set("[data-watermark]", {
+  //             yPercent: 0,
+  //             opacity: 0.08,
+  //           });
+  //           return;
+  //         }
+
+  //         if (isDesktop) {
+  //           const cols = gsap.utils.toArray("[data-col]");
+
+  //           cols.forEach((col) => {
+  //             gsap.set(col.querySelectorAll("[data-row]"), {
+  //               y: 45,
+  //               autoAlpha: 0,
+  //             });
+  //           });
+
+  //           const tl = gsap.timeline({
+  //             scrollTrigger: {
+  //               trigger: "[data-grid]",
+  //               start: "top 88%",
+  //               once: true,
+  //             },
+  //           });
+
+  //           cols.forEach((col, i) => {
+  //             tl.to(
+  //               col.querySelectorAll("[data-row]"),
+  //               {
+  //                 y: 0,
+  //                 autoAlpha: 1,
+  //                 duration: 1.3,
+  //                 ease: "power3.out",
+  //                 stagger: 0.1,
+  //                 force3D: true,
+  //               },
+  //               i * 0.15
+  //             );
+  //           });
+  //         } else {
+  //           gsap.utils.toArray("[data-col]").forEach((col) => {
+  //             const rows = col.querySelectorAll("[data-row]");
+
+  //             gsap.set(rows, { y: 35, autoAlpha: 0 });
+
+  //             gsap.to(rows, {
+  //               y: 0,
+  //               autoAlpha: 1,
+  //               duration: 1.2,
+  //               ease: "power3.out",
+  //               stagger: 0.08,
+  //               force3D: true,
+  //               scrollTrigger: {
+  //                 trigger: col,
+  //                 start: "top 92%",
+  //                 once: true,
+  //               },
+  //             });
+  //           });
+  //         }
+
+  //         gsap.fromTo(
+  //           "[data-watermark]",
+  //           { yPercent: 100, opacity: 0 },
+  //           {
+  //             yPercent: 0,
+  //             opacity: 0.08,
+  //             duration: 1.8,
+  //             ease: "power4.out",
+  //             force3D: true,
+  //             scrollTrigger: {
+  //               trigger: footerRef.current,
+  //               start: "top 98%",
+  //               once: true,
+  //             },
+  //           }
+  //         );
+  //       }
+  //     );
+
+  //     const refresh = () => ScrollTrigger.refresh();
+  //     window.addEventListener("load", refresh);
+
+  //     return () => {
+  //       window.removeEventListener("load", refresh);
+  //       mm.revert();
+  //     };
+  //   },
+  //   { scope: footerRef }
+  // );
+useGSAP(
+  () => {
+    const root = footerRef.current;
+    if (!root) return;
+
+    // Respect reduced motion: leave everything visible
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    const cols = Array.from(root.querySelectorAll("[data-col]"));
+    const grid = root.querySelector("[data-grid]");
+    const watermark = root.querySelector("[data-watermark]");
+    const watermarkWrap = root.querySelector("[data-watermark-wrap]");
+    const rowsOf = (col) => Array.from(col.querySelectorAll("[data-row]"));
+
+    // Hidden starting state
+    cols.forEach((col) =>
+      gsap.set(rowsOf(col), { y: isDesktop ? 45 : 35, autoAlpha: 0 })
+    );
+    if (watermark) gsap.set(watermark, { yPercent: 100, opacity: 0 });
+
+    const observers = [];
+    const onEnter = (el, callback, rootMargin = "0px 0px -5% 0px") => {
+      if (!el) return;
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            io.disconnect();
+            callback();
+          }
+        },
+        { rootMargin, threshold: 0 }
+      );
+      io.observe(el);
+      observers.push(io);
+    };
+
+    const playCol = (col, delay = 0) =>
+      gsap.to(rowsOf(col), {
+        y: 0,
+        autoAlpha: 1,
+        duration: isDesktop ? 1.3 : 1,
+        ease: "power3.out",
+        stagger: isDesktop ? 0.1 : 0.08,
+        delay,
+        force3D: true,
+      });
+
+    if (isDesktop) {
+      // All columns together, staggered left to right
+      onEnter(grid, () => cols.forEach((col, i) => playCol(col, i * 0.15)));
+    } else {
+      // Mobile/tablet: each column animates when it scrolls into view
+      cols.forEach((col) => onEnter(col, () => playCol(col)));
+    }
+
+    onEnter(
+      watermarkWrap,
+      () =>
+        gsap.to(watermark, {
+          yPercent: 0,
+          opacity: 0.08,
+          duration: 1.8,
+          ease: "power4.out",
+          force3D: true,
+        }),
+      "0px"
+    );
+
+    return () => observers.forEach((io) => io.disconnect());
+  },
+  { scope: footerRef }
+);
   return (
-    <footer className="relative w-full overflow-hidden bg-[#26180f] text-[#ebe7dc] pt-20">
-
-      {/* =========================================================
-          MAIN FOOTER CONTENT
-      ========================================================= */}
+    <footer
+      ref={footerRef}
+      className="
+        relative isolate w-full overflow-hidden
+        bg-[#26180f] pt-8 text-[#ebe7dc]
+        md:pt-20
+      "
+    >
+      {/* MAIN FOOTER CONTENT */}
       <main
+        data-grid
         className="
-          relative
-    z-10
-    mx-auto
-    grid
-    w-full
-    max-w-[1600px]
+          relative z-10 mx-auto grid w-full max-w-[1600px]
+          grid-cols-1 gap-y-[32px]
+          px-[22px] pb-[24px]
 
-    grid-cols-1
+          md:grid-cols-2 md:gap-x-[70px] md:gap-y-[80px]
+          md:px-[50px]
 
-    px-[30px]
-    pb-[100px]
-    gap-y-[60px]
-
-    md:grid-cols-2
-    md:px-[50px]
-    md:gap-x-[70px]
-    md:gap-y-[80px]
-
-    lg:grid-cols-[1.15fr_0.9fr_0.9fr_0.8fr_1fr]
-    lg:gap-x-[50px]
-    lg:gap-y-0
+          lg:grid-cols-[1.1fr_0.85fr_0.9fr_0.75fr_1.4fr]
+          lg:gap-x-[50px] lg:gap-y-0
         "
       >
-
-        {/* =====================================================
-            COLUMN 1 — BRAND
-        ===================================================== */}
-        <div className="flex flex-col">
-
-          {/* Brand Icon */}
+        {/* COLUMN 1 — BRAND */}
+        <div data-col className="flex flex-col">
           <img
+            data-row
             src={brandIcon}
-            alt="VillaBliss"
+            alt="The Sunset Cove"
             className="
-              mb-[48px]
-              h-[80px]
-              w-[80px]
-              object-contain
+              mb-[20px] h-[60px] w-[60px] object-contain
+              md:mb-[48px] md:h-[140px] md:w-[140px]
             "
           />
 
-          {/* Heading */}
           <h2
+            data-row
             className="
-              max-w-[390px]
-              font-['Cormorant_Garamond']
-              text-[30px]
-              font-medium
-              leading-[1.15]
+              max-w-[390px] font-['Cormorant_Garamond']
+              text-[25px] font-medium leading-[1.15]
               tracking-[-0.02em]
-
-              md:text-[31px]
-
-              lg:text-[32px]
+              md:text-[31px] lg:text-[32px]
             "
           >
             Your luxurious getaway awaits
           </h2>
 
-          {/* CTA */}
           <a
+            data-row
             href="/contact"
             className="
-              mt-[32px]
-              flex
-              h-[58px]
-              w-fit
-              min-w-[275px]
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-[#fdd17c]
-              px-[30px]
-              font-['Inter']
-              text-[16px]
-              font-medium
-              text-[#fdd17c]
-              transition-all
-              duration-300
-              hover:bg-[#fdd17c]
-              hover:text-[#26180f]
+              mt-[18px] flex h-[42px] w-fit min-w-[205px]
+              items-center justify-center rounded-full
+              border border-[#fdd17c] px-[22px]
+              font-['Inter'] text-[14px] font-medium
+              text-[#fdd17c] transition-colors duration-300
+              hover:bg-[#fdd17c] hover:text-[#26180f]
+
+              md:mt-[32px] md:h-[58px] md:min-w-[275px]
+              md:px-[30px] md:text-[16px]
             "
           >
             Book your stay now
           </a>
 
-          {/* Copyright */}
           <p
-            className="
-              mt-[55px]
-              font-['Inter']
-              text-[15px]
-              leading-[1.5]
-              text-[#ebe7dc]
-            "
-          >
-            Designed by{" "}
-            <a
-              href="#"
-              className="
-                text-[#fdd17c]
-                underline
-                underline-offset-[3px]
-              "
-            >
-              Webestica
-            </a>
-            , Powered by{" "}
-            <a
-              href="#"
-              className="
-                text-[#fdd17c]
-                underline
-                underline-offset-[3px]
-              "
-            >
-              Framer
-            </a>
-          </p>
+  data-row
+  className="
+    mt-[25px] font-['Inter'] text-[14px]
+    leading-[1.6] text-[#ebe7dc]
+    md:mt-[55px] md:text-[15px] md:leading-[1.5]
+  "
+>
+  © {new Date().getFullYear()}{" "}
+  <span className="text-[#fdd17c]">The Sunset Cove</span>.
+  All Rights Reserved.
+</p>
         </div>
 
-
-        {/* =====================================================
-            COLUMN 2 — PAGES
-        ===================================================== */}
-        <div className="flex flex-col">
-
+        {/* COLUMN 2 — PAGES */}
+        <div data-col className="flex flex-col">
           <h3
+            data-row
             className="
-              font-['Cormorant_Garamond']
-              text-[28px]
-              font-medium
-              leading-none
+              font-['Cormorant_Garamond'] text-[25px]
+              font-medium leading-none
+              md:text-[28px]
             "
           >
             Pages
           </h3>
 
-          {/* Page Links */}
           <div
             className="
-              mt-[62px]
-              grid
-              grid-cols-2
-              gap-x-[65px]
+              mt-[22px] grid grid-cols-2 gap-x-[35px]
+              md:mt-[62px] md:gap-x-[65px]
             "
           >
-
-            {/* Left */}
-            <div className="flex flex-col gap-[24px]">
-
+            <div className="flex flex-col gap-[12px] md:gap-[24px]">
               {pagesLeft.map((page) => (
                 <a
+                  data-row
                   key={page.name}
                   href={page.href}
                   className="
-                    w-fit
-                    font-['Inter']
-                    text-[16px]
-                    leading-[1.3]
-                    transition-colors
-                    duration-300
+                    w-fit font-['Inter'] text-[14px]
+                    leading-[1.3] transition-colors duration-300
                     hover:text-[#fdd17c]
+                    md:text-[16px]
                   "
                 >
                   {page.name}
                 </a>
               ))}
-
             </div>
 
-            {/* Right */}
-            <div className="flex flex-col gap-[24px]">
-
+            <div className="flex flex-col gap-[12px] md:gap-[24px]">
               {pagesRight.map((page) => (
                 <a
+                  data-row
                   key={page.name}
                   href={page.href}
                   className="
-                    w-fit
-                    font-['Inter']
-                    text-[16px]
-                    leading-[1.3]
-                    transition-colors
-                    duration-300
+                    w-fit font-['Inter'] text-[14px]
+                    leading-[1.3] transition-colors duration-300
                     hover:text-[#fdd17c]
+                    md:text-[16px]
                   "
                 >
                   {page.name}
                 </a>
               ))}
-
             </div>
-
           </div>
         </div>
 
-
-        {/* =====================================================
-            COLUMN 3 — CONTACT
-        ===================================================== */}
-        <div className="flex flex-col">
-
+        {/* COLUMN 3 — CONTACT */}
+        <div data-col className="flex flex-col">
           <h3
+            data-row
             className="
-              font-['Cormorant_Garamond']
-              text-[28px]
-              font-medium
-              leading-none
+              font-['Cormorant_Garamond'] text-[25px]
+              font-medium leading-none
+              md:text-[28px]
             "
           >
             Contact info
           </h3>
 
-          {/* Contact Details */}
-          <div className="mt-[62px]">
-
-            {/* Phone Numbers */}
+          <div className="mt-[22px] md:mt-[62px]">
             <div
+              data-row
               className="
-                flex
-                flex-wrap
-                gap-x-[25px]
-                gap-y-[10px]
+                flex flex-wrap gap-x-[18px] gap-y-[8px]
+                md:gap-x-[25px] md:gap-y-[10px]
               "
             >
               <a
                 href="tel:+2518546308"
                 className="
-                  font-['Inter']
-                  text-[16px]
-                  underline
-                  underline-offset-[4px]
-                  transition-colors
-                  duration-300
-                  hover:text-[#fdd17c]
+                  font-['Inter'] text-[14px] underline
+                  underline-offset-[4px] transition-colors
+                  duration-300 hover:text-[#fdd17c]
+                  md:text-[16px]
                 "
               >
                 +(251) 854-6308
@@ -1002,217 +406,153 @@ const Footer = () => {
               <a
                 href="tel:+4695372410"
                 className="
-                  font-['Inter']
-                  text-[16px]
-                  underline
-                  underline-offset-[4px]
-                  transition-colors
-                  duration-300
-                  hover:text-[#fdd17c]
+                  font-['Inter'] text-[14px] underline
+                  underline-offset-[4px] transition-colors
+                  duration-300 hover:text-[#fdd17c]
+                  md:text-[16px]
                 "
               >
                 +(469) 537-2410
               </a>
             </div>
 
-            {/* Email */}
             <a
+              data-row
               href="mailto:hello@example.com"
               className="
-                mt-[27px]
-                block
-                w-fit
-                font-['Inter']
-                text-[16px]
-                underline
-                underline-offset-[4px]
-                transition-colors
-                duration-300
-                hover:text-[#fdd17c]
+                mt-[14px] block w-fit font-['Inter']
+                text-[14px] underline underline-offset-[4px]
+                transition-colors duration-300 hover:text-[#fdd17c]
+                md:mt-[27px] md:text-[16px]
               "
             >
               hello@example.com
             </a>
 
-            {/* Address */}
-            <div className="mt-[42px]">
-
+            <div data-row className="mt-[22px] md:mt-[42px]">
               <p
                 className="
-                  font-['Inter']
-                  text-[16px]
-                  font-medium
-                  leading-[1.4]
-                  text-[#fdd17c]
+                  font-['Inter'] text-[14px] font-medium
+                  leading-[1.4] text-[#fdd17c]
+                  md:text-[16px]
                 "
               >
-                VillaBliss
+                The Sunset Cove
               </p>
 
+              {/* Update this address so it matches the map location (Neware, Maharashtra) */}
               <p
                 className="
-                  mt-[8px]
-                  max-w-[330px]
-                  font-['Inter']
-                  text-[16px]
-                  leading-[1.45]
-                  text-[#ebe7dc]
+                  mt-[6px] max-w-[330px] font-['Inter']
+                  text-[14px] leading-[1.5] text-[#ebe7dc]
+                  md:mt-[8px] md:text-[16px] md:leading-[1.45]
                 "
               >
-                123 Seaside Retreat Lane, Palm Cove,
-                FL 33140, United States
+                123 Seaside Retreat Lane, Palm Cove, FL 33140, United States
               </p>
-
             </div>
           </div>
         </div>
 
-
-        {/* =====================================================
-            COLUMN 4 — SOCIAL
-        ===================================================== */}
-        <div className="flex flex-col">
-
+        {/* COLUMN 4 — SOCIAL
+            Mobile/tablet: after the map (order-5)
+            Desktop (lg+): 4th column (lg:order-4) */}
+        <div data-col className="order-5 flex flex-col lg:order-4">
           <h3
+            data-row
             className="
-              font-['Cormorant_Garamond']
-              text-[28px]
-              font-medium
-              leading-none
+              font-['Cormorant_Garamond'] text-[25px]
+              font-medium leading-none
+              md:text-[28px]
             "
           >
             Follow us on
           </h3>
 
-          {/* Social Links */}
-          <div className="mt-[62px] flex flex-col gap-[25px]">
-
+          <div
+            className="
+              mt-[22px] flex flex-col gap-[14px]
+              md:mt-[62px] md:gap-[25px]
+            "
+          >
             {socials.map((social) => (
               <a
+                data-row
                 key={social.name}
                 href={social.href}
                 className="
-                  flex
-                  w-fit
-                  items-center
-                  gap-[14px]
-                  font-['Inter']
-                  text-[16px]
-                  transition-colors
-                  duration-300
+                  flex w-fit items-center gap-[11px]
+                  font-['Inter'] text-[14px]
+                  transition-colors duration-300
                   hover:text-[#fdd17c]
+                  md:gap-[14px] md:text-[16px]
                 "
               >
-
                 <img
                   src={social.icon}
                   alt=""
                   className="
-                    h-[19px]
-                    w-[19px]
-                    shrink-0
-                    object-contain
+                    h-[18px] w-[18px] shrink-0 object-contain
+                    md:h-[19px] md:w-[19px]
                   "
                 />
-
                 <span>{social.name}</span>
-
               </a>
             ))}
-
           </div>
         </div>
 
-
-        {/* =====================================================
-            COLUMN 5 — MAP (new, medium-size box on the right)
-        ===================================================== */}
-        <div className="flex flex-col">
-
+        {/* COLUMN 5 — MAP
+            Mobile/tablet: before social (order-4)
+            Desktop (lg+): last, widest column (lg:order-5) */}
+        <div data-col className="order-4 flex flex-col lg:order-5">
           <h3
+            data-row
             className="
-              font-['Cormorant_Garamond']
-              text-[28px]
-              font-medium
-              leading-none
+              font-['Cormorant_Garamond'] text-[25px]
+              font-medium leading-none
+              md:text-[28px]
             "
           >
             Find us
           </h3>
 
           <div
+            data-row
             className="
-              mt-[62px]
-              h-[280px]
-              w-full
-              max-w-[360px]
-              overflow-hidden
-              rounded-2xl
-              border
-              border-[#fdd17c]/30
-              shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+              mt-[22px] w-full max-w-[440px]
+              md:mt-[62px]
             "
           >
-            <iframe
-              title="VillaBliss location map"
-              src={mapEmbedSrc}
-              className="h-full w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <FooterMap />
           </div>
-
-          <a
-            href="https://maps.app.goo.gl/ff5A7VGERWYg4MZr6?g_st=aw"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              mt-[16px]
-              w-fit
-              font-['Inter']
-              text-[15px]
-              underline
-              underline-offset-[4px]
-              transition-colors
-              duration-300
-              hover:text-[#fdd17c]
-            "
-          >
-            Get directions
-          </a>
-
         </div>
-
       </main>
 
-
-      {/* =========================================================
-          GIANT VILLABLISS WATERMARK
-      ========================================================= */}
+      {/* BOTTOM WATERMARK */}
       <div
+        data-watermark-wrap
         className="
-          relative
-          z-0
-          -mt-[20px]
-          w-full
-          overflow-hidden
+          pointer-events-none relative z-0 mt-[5px]
+          h-[85px] w-full overflow-hidden
+          sm:h-[110px]
+          md:mt-[10px] md:h-[250px]
+          lg:h-[320px]
         "
       >
         <img
+          data-watermark
           src={footerLogo}
-          alt="VillaBliss"
+          alt="The Sunset Cove"
           className="
-            mx-auto
-            block
-            w-[calc(100%-60px)]
-            min-w-[900px]
-            max-w-[1723px]
-            opacity-[0.05]
+            absolute bottom-0 left-1/2 block
+            h-auto w-[110%] max-w-none
+            -translate-x-1/2 object-contain
+            opacity-[0.08]
+            md:w-[115%]
           "
         />
       </div>
-
     </footer>
   );
 };
