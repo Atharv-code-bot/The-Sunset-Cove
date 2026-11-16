@@ -11,46 +11,29 @@ const RoomHero = ({ room }) => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      });
+      const category = titleRef.current?.children[0];
+      const heading = titleRef.current?.children[1];
 
-      // Category label
-      tl.from(titleRef.current.children[0], {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      })
+      if (!category || !heading || !textRef.current) return;
 
-        // Heading
-        .from(
-          titleRef.current.children[1],
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power3.out",
+      // Keep content visible by default; animate it only when the hero enters view.
+      gsap.fromTo(
+        [category, heading, textRef.current],
+        { y: 28, opacity: 0.65 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: "power3.out",
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top 82%",
+            once: true,
           },
-          "-=0.45"
-        )
-
-        // Description
-        .from(
-          textRef.current,
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          "-=0.35"
-        );
+        }
+      );
     }, heroRef);
 
     return () => ctx.revert();
@@ -59,25 +42,26 @@ const RoomHero = ({ room }) => {
   return (
     <section
       ref={heroRef}
-      className="bg-[#F4F0E8] px-6 pt-10 pb-16 lg:px-12 lg:pt-16 lg:pb-24"
+      className="bg-[#F4F0E8] px-4 pb-10 pt-8 sm:px-6 sm:pb-14 sm:pt-10 lg:px-12 lg:pb-24 lg:pt-16"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Hero Content */}
         <div
           ref={titleRef}
           className="mx-auto flex max-w-5xl flex-col items-center text-center"
         >
-          <p className="mb-4 font-[Inter] text-[12px] uppercase tracking-[0.32em] text-[#B98B32]">
+          {/* Category label: elevated with a subtle gold treatment, without competing with the main tagline. */}
+          <p className="mb-5 inline-flex max-w-full items-center justify-center rounded-full border border-[#B98B32]/40 bg-[#FDD17C]/20 px-4 py-2 font-[Inter] text-[10px] font-semibold uppercase leading-relaxed tracking-[0.22em] text-[#8D6424] shadow-[0_2px_10px_rgba(185,139,50,0.08)] sm:mb-5 sm:px-5 sm:text-[11px] sm:tracking-[0.28em] md:text-[12px]">
             {room.title}
           </p>
 
-          <h1 className="font-[Cormorant] text-[56px] leading-[0.95] text-[#26180F] md:text-[88px] lg:text-[104px]">
+          {/* Keep the existing tagline style; only scale it responsively for smaller screens. */}
+          <h1 className="max-w-full break-words font-[Cormorant] text-[clamp(2.45rem,8.5vw,3.5rem)] leading-[0.98] text-[#26180F] sm:text-[clamp(3.5rem,7vw,5.5rem)] lg:text-[104px] lg:leading-[0.95]">
             {room.hero.title}
           </h1>
 
           <p
             ref={textRef}
-            className="mt-8 max-w-3xl font-[Inter] text-[17px] leading-8 text-[#514941]"
+            className="mt-5 max-w-3xl font-[Inter] text-[14px] leading-7 text-[#514941] sm:mt-7 sm:text-[16px] sm:leading-8 lg:mt-8 lg:text-[17px]"
           >
             {room.hero.description}
           </p>

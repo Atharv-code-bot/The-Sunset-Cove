@@ -15,6 +15,7 @@ let introPlayed = false;
    It is highlighted while you are on an activity detail page (/activity/...). */
 const navLinks = [
   { label: "Home", to: "/", exact: true },
+  { label: "Restaurant", to: "/restaurant", match: ["/restaurant"] },
   {
     label: "Activities",
     to: "/",

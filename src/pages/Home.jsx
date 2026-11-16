@@ -87,9 +87,13 @@ const Home = () => {
         <FeatureSection />
 
         <RestaurantDetails />
+        </AnimatedSection>
 
         {/* Room Categories */}
-        <Gallery />
+           <AnimatedSection>     
+          <Gallery />
+        </AnimatedSection>
+      
 
         <AnimatedSection>
           <Testimonial />
